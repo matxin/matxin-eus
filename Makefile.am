@@ -6,6 +6,12 @@ BASENAME=matxin-$(LANG1)
 
 TARGETS_COMMON=$(LANG1).morph_gen.bin \
 	       $(LANG1).measures_gen.bin \
+	       $(LANG1).semantic.dat \
+	       $(LANG1).morph_preproc.dat \
+	       $(LANG1).generation_move.dat \
+	       $(LANG1).intrachunk_order.dat \
+	       $(LANG1).verb_subcat.dat \
+	       $(LANG1).verb_noun_subcat.dat \
 	       $(LANG1).morph_nolex.bin 
 
 ###############################################################################
@@ -18,6 +24,24 @@ $(LANG1).measures_gen.bin: $(BASENAME).measures_gen.xml
 
 $(LANG1).morph_nolex.bin: $(BASENAME).morph_nolex.xml 
 	lt-comp rl $< $@
+
+$(LANG1).semantic.dat: $(BASENAME).semantic.dat
+	cp $< $@
+
+$(LANG1).verb_subcat.dat: $(BASENAME).verb_subcat.dat
+	cp $< $@
+
+$(LANG1).verb_noun_subcat.dat: $(BASENAME).verb_noun_subcat.dat
+	cp $< $@
+
+$(LANG1).intrachunk_order.dat: $(BASENAME).intrachunk_order.dat
+	cp $< $@
+
+$(LANG1).generation_move.dat: $(BASENAME).generation_move.dat
+	cp $< $@
+
+$(LANG1).morph_preproc.dat: $(BASENAME).morph_preproc.dat
+	cp $< $@
 
 
 ###############################################################################
